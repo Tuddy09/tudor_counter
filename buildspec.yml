@@ -14,7 +14,10 @@ phases:
     commands:
       - echo "Pushing the Docker image"
       - docker push 022499048865.dkr.ecr.eu-west-1.amazonaws.com/tudor-counter-new:latest
+      - echo "Creating imagedefinitions.json"
+      - printf '[{"name":"tudor-counter-new","imageUri":"022499048865.dkr.ecr.eu-west-1.amazonaws.com/tudor-counter-new:latest"}]' > imagedefinitions.json
 
 artifacts:
   files:
     - '**/*'
+    - imagedefinitions.json
